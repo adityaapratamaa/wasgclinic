@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>WASG Aesthetic Clinic | Kecantikan Modern & Profesional</title>
+<meta name="description" content="WASG Aesthetic Clinic – klinik kecantikan modern dan profesional. Perawatan wajah, skincare premium, dan aesthetic treatment terbaik. Konsultasi gratis via WhatsApp!">
+<meta name="keywords" content="klinik kecantikan, aesthetic clinic, perawatan wajah, skincare, WASG, botox, filler, laser, Jakarta">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --gold:       #C9A96E;
+  --gold-light: #E8D5A8;
+  --gold-dark:  #9B7840;
+  --rose:       #C4907A;
+  --rose-light: #E8C4B0;
+  --cream:      #FAF6F0;
+  --warm-white: #FDF9F4;
+  --dark:       #1C1410;
+  --dark-mid:   #2D2318;
+  --mid:        #6B5744;
+  --text:       #3D2E20;
+  --text-light: #8B7060;
+  --border:     rgba(201,169,110,0.2);
+  --glass:      rgba(250,246,240,0.85);
+  --shadow:     0 20px 80px rgba(28,20,16,0.12);
+  --nav-h:      80px;
+}
+
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.7;
+  cursor:none;
+}
+::selection{background:var(--gold-light);color:var(--dark);}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{cursor:none;border:none;background:none;font-family:inherit;}
+
+/* ===== CUSTOM CURSOR ===== */
+#cursor{
+  width:12px;height:12px;
+  background:var(--gold);
+  border-radius:50%;
+  position:fixed;top:0;left:0;
+  pointer-events:none;
+  z-index:99999;
+  transition:transform 0.15s ease;
+  mix-blend-mode:multiply;
+}
+#cursor-ring{
+  width:40px;height:40px;
+  border:1.5px solid var(--gold);
+  border-radius:50%;
+  position:fixed;top:0;left:0;
+  pointer-events:none;
+  z-index:99998;
+  transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),width 0.3s,height 0.3s,opacity 0.3s;
+  opacity:0.6;
+}
+#cursor-ring.hover{width:60px;height:60px;opacity:1;background:rgba(201,169,110,0.08);}
+
+/* ===== SCROLL PROGRESS ===== */
+#progress-bar{
+  position:fixed;top:0;left:0;
+  height:3px;width:0%;
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+  z-index:9999;
+  transition:width 0.1s linear;
+}
+
+/* ===== PRELOADER ===== */
+#preloader{
+  position:fixed;inset:0;
+  background:var(--dark);
+  z-index:99990;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  transition:opacity 0.8s ease,visibility 0.8s ease;
+}
+#preloader.done{opacity:0;visibility:hidden;}
+.pre-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:300;
+  color:var(--cream);
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  opacity:0;
+  animation:preReveal 0.8s 0.3s ease forwards;
+}
+.pre-sub{
+  font-family:'DM Sans',sans-serif;
+  font-size:0.75rem;
+  font-weight:300;
+  color:var(--gold);
+  letter-spacing:0.5em;
+  text-transform:uppercase;
+  margin-top:8px;
+  opacity:0;
+  animation:preReveal 0.8s 0.6s ease forwards;
+}
+.pre-line{
+  width:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin-top:24px;
+  animation:preLine 1.2s 0.8s ease forwards;
+}
+@keyframes preReveal{to{opacity:1;}}
+@keyframes preLine{to{width:200px;}}
+.pre-dots{display:flex;gap:8px;margin-top:32px;}
+.pre-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--gold);
+  opacity:0.3;
+  animation:dotPulse 1.2s infinite;
+}
+.pre-dot:nth-child(2){animation-delay:0.2s;}
+.pre-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes dotPulse{0%,100%{opacity:0.3;}50%{opacity:1;}}
+
+/* ===== FLOATING WA ===== */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;
+  z-index:9000;
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:#fff;
+  padding:14px 22px 14px 18px;
+  border-radius:50px;
+  box-shadow:0 8px 30px rgba(37,211,102,0.4);
+  font-size:0.85rem;
+  font-weight:500;
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+  cursor:none;
+}
+.wa-float:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 16px 40px rgba(37,211,102,0.5);}
+.wa-float svg{flex-shrink:0;}
+.wa-float span{white-space:nowrap;}
+@media(max-width:480px){.wa-float span{display:none;}.wa-float{padding:14px;}}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;
+  height:var(--nav-h);
+  z-index:8000;
+  transition:all 0.4s ease;
+  padding:0 32px;
+}
+.navbar.scrolled{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 4px 30px rgba(28,20,16,0.08);
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  height:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;
+}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:none;}
+.logo-mark{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+  color:#fff;
+  box-shadow:0 4px 16px rgba(196,144,122,0.4);
+  flex-shrink:0;
+}
+.logo-text-wrap{}
+.logo-main{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;
+  font-weight:600;
+  color:var(--dark);
+  letter-spacing:0.1em;
+  line-height:1;
+  transition:color 0.3s;
+}
+.navbar:not(.scrolled) .logo-main{color:#fff;}
+.logo-sub{
+  display:block;
+  font-size:0.6rem;
+  font-weight:400;
+  letter-spacing:0.35em;
+  text-transform:uppercase;
+  color:var(--gold);
+  line-height:1;
+  margin-top:3px;
+}
+.nav-links{
+  display:flex;align-items:center;gap:36px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:0.82rem;
+  font-weight:400;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#fff;
+  position:relative;
+  cursor:none;
+  transition:color 0.3s;
+}
+.navbar.scrolled .nav-links a{color:var(--text);}
+.nav-links a::after{
+  content:'';
+  position:absolute;bottom:-4px;left:0;
+  width:0;height:1px;
+  background:var(--gold);
+  transition:width 0.3s ease;
+}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-links a:hover{color:var(--gold);}
+.navbar.scrolled .nav-links a:hover{color:var(--gold);}
+.btn-nav-cta{
+  padding:10px 24px;
+  border:1px solid var(--gold);
+  border-radius:50px;
+  font-size:0.78rem;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--gold);
+  cursor:none;
+  transition:all 0.3s ease;
+  white-space:nowrap;
+}
+.btn-nav-cta:hover{background:var(--gold);color:#fff;}
+.hamburger{
+  display:none;
+  flex-direction:column;gap:5px;
+  padding:4px;cursor:none;
+}
+.hamburger span{
+  display:block;width:24px;height:2px;
+  background:#fff;
+  border-radius:2px;
+  transition:all 0.35s ease;
+}
+.navbar.scrolled .hamburger span{background:var(--dark);}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;transform:translateX(-8px);}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+/* Mobile Menu */
+.mobile-menu{
+  position:fixed;top:0;right:-100%;
+  width:min(360px,100vw);height:100%;
+  background:var(--dark);
+  z-index:8500;
+  transition:right 0.45s cubic-bezier(0.77,0,0.175,1);
+  display:flex;flex-direction:column;
+  padding:32px 28px;
+  overflow-y:auto;
+}
+.mobile-menu.open{right:0;}
+.mobile-overlay{
+  position:fixed;inset:0;
+  background:rgba(28,20,16,0.6);
+  z-index:8400;
+  opacity:0;visibility:hidden;
+  transition:all 0.4s ease;
+  backdrop-filter:blur(4px);
+}
+.mobile-overlay.show{opacity:1;visibility:visible;}
+.mobile-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;}
+.mobile-logo-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:600;
+  color:var(--cream);letter-spacing:0.1em;
+}
+.mobile-close{
+  width:36px;height:36px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:none;
+  transition:all 0.3s;
+}
+.mobile-close:hover{background:var(--gold);border-color:var(--gold);}
+.mobile-nav{display:flex;flex-direction:column;gap:4px;flex:1;}
+.mobile-nav a{
+  font-size:1.4rem;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  color:rgba(255,255,255,0.7);
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  cursor:none;
+  transition:color 0.3s;
+  letter-spacing:0.05em;
+}
+.mobile-nav a:hover{color:var(--gold);}
+.mobile-wa{
+  margin-top:40px;
+  padding:16px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  border-radius:12px;
+  color:#fff;
+  text-align:center;
+  font-weight:500;
+  font-size:0.9rem;
+  cursor:none;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+
+/* ===== HERO ===== */
+.hero{
+  height:100vh;min-height:600px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg, #1C1410 0%, #2D2318 40%, #1C1814 70%, #0F0B08 100%);
+}
+.hero-bg::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 50%, rgba(201,169,110,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 80% 80%, rgba(196,144,122,0.08) 0%, transparent 50%);
+}
+.hero-particles-canvas{
+  position:absolute;inset:0;
+  pointer-events:none;opacity:0.5;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(201,169,110,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.hero-content{
+  position:relative;z-index:10;
+  height:100%;
+  max-width:1280px;margin:0 auto;
+  padding:0 32px;
+  display:flex;align-items:center;
+  gap:64px;
+}
+.hero-left{flex:1;padding-top:var(--nav-h);}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:28px;
+  opacity:0;
+  animation:heroFadeUp 0.8s 0.5s ease forwards;
+}
+.eyebrow-line{width:40px;height:1px;background:var(--gold);}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  font-weight:300;
+  line-height:1.1;
+  color:#fff;
+  margin-bottom:24px;
+  opacity:0;
+  animation:heroFadeUp 0.8s 0.7s ease forwards;
+}
+.hero-title em{
+  font-style:italic;
+  color:var(--gold-light);
+}
+.hero-title strong{
+  display:block;
+  font-weight:600;
+  background:linear-gradient(135deg,var(--rose-light),var(--gold-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-desc{
+  font-size:1rem;
+  font-weight:300;
+  color:rgba(250,246,240,0.65);
+  max-width:480px;
+  margin-bottom:44px;
+  line-height:1.8;
+  opacity:0;
+  animation:heroFadeUp 0.8s 0.9s ease forwards;
+}
+.hero-actions{
+  display:flex;align-items:center;gap:20px;
+  flex-wrap:wrap;
+  opacity:0;
+  animation:heroFadeUp 0.8s 1.1s ease forwards;
+}
+.btn-primary{
+  padding:16px 36px;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  border-radius:50px;
+  color:#fff;
+  font-size:0.85rem;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  cursor:none;
+  transition:all 0.3s ease;
+  box-shadow:0 8px 32px rgba(201,169,110,0.35);
+  position:relative;overflow:hidden;
+}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--gold),var(--rose));
+  opacity:0;transition:opacity 0.3s;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(201,169,110,0.5);}
+.btn-primary:hover::before{opacity:1;}
+.btn-primary span{position:relative;z-index:1;}
+.btn-outline{
+  padding:15px 36px;
+  border:1px solid rgba(201,169,110,0.5);
+  border-radius:50px;
+  color:var(--gold-light);
+  font-size:0.85rem;
+  font-weight:400;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  cursor:none;
+  transition:all 0.3s ease;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,0.08);}
+.hero-right{
+  flex:0 0 480px;
+  position:relative;
+  padding-top:var(--nav-h);
+  opacity:0;
+  animation:heroFadeRight 1s 0.6s ease forwards;
+}
+.hero-image-wrap{
+  position:relative;
+  border-radius:24px;
+  overflow:hidden;
+  aspect-ratio:4/5;
+  box-shadow:0 40px 100px rgba(0,0,0,0.5);
+}
+.hero-image-wrap img{
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:brightness(0.9) saturate(1.1);
+}
+.hero-image-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(28,20,16,0.6) 0%, transparent 50%);
+}
+.hero-badge-float{
+  position:absolute;
+  bottom:28px;left:-28px;
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px 20px;
+  box-shadow:0 16px 40px rgba(28,20,16,0.2);
+  z-index:5;
+  animation:float 4s ease-in-out infinite;
+}
+.badge-float-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:600;
+  color:var(--gold);line-height:1;
+}
+.badge-float-label{
+  font-size:0.7rem;font-weight:400;
+  color:var(--text-light);
+  letter-spacing:0.05em;
+  margin-top:4px;
+}
+.hero-badge-float2{
+  position:absolute;
+  top:120px;right:-24px;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  border-radius:16px;
+  padding:14px 18px;
+  box-shadow:0 12px 32px rgba(196,144,122,0.4);
+  z-index:5;
+  animation:float 4s 1s ease-in-out infinite;
+}
+.badge-float2-text{
+  font-size:0.72rem;font-weight:500;
+  color:#fff;letter-spacing:0.05em;
+}
+.hero-stats{
+  display:flex;gap:40px;
+  margin-top:44px;
+  opacity:0;
+  animation:heroFadeUp 0.8s 1.3s ease forwards;
+}
+.hero-stat{}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:600;
+  color:var(--gold-light);line-height:1;
+}
+.stat-label{
+  font-size:0.72rem;font-weight:300;
+  color:rgba(255,255,255,0.5);
+  letter-spacing:0.05em;
+  margin-top:4px;
+}
+.hero-scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.4);
+  font-size:0.65rem;letter-spacing:0.2em;
+  text-transform:uppercase;
+  animation:heroFadeUp 0.8s 1.8s ease forwards;
+  opacity:0;
+}
+.scroll-line{
+  width:1px;height:40px;
+  background:linear-gradient(to bottom, var(--gold), transparent);
+  animation:scrollPulse 2s infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes heroFadeRight{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+
+/* ===== SECTIONS BASE ===== */
+section{padding:120px 32px;}
+.container{max-width:1280px;margin:0 auto;}
+.section-tag{
+  display:inline-block;
+  font-size:0.68rem;font-weight:500;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:16px;
+  position:relative;
+  padding-left:28px;
+}
+.section-tag::before{
+  content:'';
+  position:absolute;left:0;top:50%;
+  width:20px;height:1px;
+  background:var(--gold);
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:400;
+  color:var(--dark);
+  line-height:1.2;
+  margin-bottom:16px;
+}
+.section-title em{font-style:italic;color:var(--gold);}
+.section-desc{
+  font-size:0.95rem;font-weight:300;
+  color:var(--text-light);
+  max-width:560px;
+  line-height:1.8;
+}
+.text-center{text-align:center;}
+.text-center .section-tag{padding-left:0;}
+.text-center .section-tag::before{display:none;}
+.text-center .section-desc{margin:0 auto;}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-left{
+  opacity:0;transform:translateX(-50px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal-left.visible{opacity:1;transform:none;}
+.reveal-right{
+  opacity:0;transform:translateX(50px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal-right.visible{opacity:1;transform:none;}
+.reveal-scale{
+  opacity:0;transform:scale(0.9);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal-scale.visible{opacity:1;transform:scale(1);}
+.delay-1{transition-delay:0.1s;}
+.delay-2{transition-delay:0.2s;}
+.delay-3{transition-delay:0.3s;}
+.delay-4{transition-delay:0.4s;}
+.delay-5{transition-delay:0.5s;}
+.delay-6{transition-delay:0.6s;}
+
+/* ===== MARQUEE STRIP ===== */
+.marquee-section{
+  background:linear-gradient(135deg,var(--dark),var(--dark-mid));
+  padding:20px 0;
+  overflow:hidden;
+  border-top:1px solid rgba(201,169,110,0.15);
+  border-bottom:1px solid rgba(201,169,110,0.15);
+}
+.marquee-track{
+  display:flex;gap:0;
+  animation:marquee 25s linear infinite;
+  width:max-content;
+}
+.marquee-item{
+  display:flex;align-items:center;gap:20px;
+  padding:0 32px;
+  font-size:0.72rem;
+  font-weight:400;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(250,246,240,0.5);
+  white-space:nowrap;
+}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ===== ABOUT / INTRO ===== */
+.about-section{background:var(--warm-white);}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.about-images{
+  position:relative;
+}
+.about-img-main{
+  border-radius:20px;
+  overflow:hidden;
+  aspect-ratio:4/5;
+  box-shadow:var(--shadow);
+}
+.about-img-main img{width:100%;height:100%;object-fit:cover;}
+.about-img-accent{
+  position:absolute;
+  bottom:-32px;right:-32px;
+  width:55%;
+  border-radius:16px;
+  overflow:hidden;
+  aspect-ratio:1/1;
+  border:4px solid var(--warm-white);
+  box-shadow:var(--shadow);
+}
+.about-img-accent img{width:100%;height:100%;object-fit:cover;}
+.about-badge{
+  position:absolute;
+  top:32px;left:-20px;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  padding:20px 24px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 16px 40px rgba(196,144,122,0.4);
+}
+.ab-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;font-weight:600;
+  color:#fff;line-height:1;
+}
+.ab-label{
+  font-size:0.65rem;color:rgba(255,255,255,0.8);
+  letter-spacing:0.1em;margin-top:4px;
+}
+.about-right{padding-left:20px;}
+.about-features{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:20px;margin-top:44px;
+}
+.about-feat{
+  padding:20px;
+  background:var(--cream);
+  border-radius:12px;
+  border:1px solid var(--border);
+  transition:all 0.3s ease;
+}
+.about-feat:hover{
+  border-color:var(--gold);
+  box-shadow:0 8px 32px rgba(201,169,110,0.15);
+  transform:translateY(-4px);
+}
+.feat-icon{
+  font-size:1.5rem;margin-bottom:10px;
+}
+.feat-title{
+  font-size:0.85rem;font-weight:600;
+  color:var(--dark);margin-bottom:4px;
+}
+.feat-text{font-size:0.78rem;color:var(--text-light);}
+
+/* ===== SERVICES ===== */
+.services-section{
+  background:linear-gradient(180deg,var(--cream) 0%,var(--warm-white) 100%);
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+  margin-top:64px;
+}
+.service-card{
+  background:#fff;
+  border-radius:24px;
+  padding:40px 32px;
+  border:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+  cursor:none;
+  transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.service-card::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+.service-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 32px 80px rgba(28,20,16,0.15);
+  border-color:transparent;
+}
+.service-card:hover::before{opacity:1;}
+.service-card:hover .sc-number,
+.service-card:hover .sc-title,
+.service-card:hover .sc-desc,
+.service-card:hover .sc-price{color:#fff;}
+.service-card:hover .sc-icon-wrap{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.3);}
+.service-card:hover .sc-divider{background:rgba(255,255,255,0.3);}
+.service-card>*{position:relative;z-index:1;}
+.sc-number{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.85rem;font-weight:300;
+  color:var(--gold);letter-spacing:0.1em;
+  margin-bottom:20px;
+  transition:color 0.3s;
+}
+.sc-icon-wrap{
+  width:60px;height:60px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;
+  margin-bottom:24px;
+  transition:all 0.3s;
+}
+.sc-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:500;
+  color:var(--dark);
+  margin-bottom:12px;
+  transition:color 0.3s;
+}
+.sc-desc{
+  font-size:0.82rem;font-weight:300;
+  color:var(--text-light);
+  line-height:1.8;
+  transition:color 0.3s;
+}
+.sc-divider{
+  height:1px;
+  background:var(--border);
+  margin:20px 0;
+  transition:background 0.3s;
+}
+.sc-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:500;
+  color:var(--gold);
+  transition:color 0.3s;
+}
+
+/* ===== PRODUCTS ===== */
+.products-section{
+  background:var(--dark);
+  position:relative;overflow:hidden;
+}
+.products-section::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.products-section .section-title{color:var(--cream);}
+.products-section .section-tag{color:var(--gold);}
+.products-section .section-desc{color:rgba(250,246,240,0.5);}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin-top:64px;
+}
+.product-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(201,169,110,0.15);
+  border-radius:20px;
+  overflow:hidden;
+  cursor:none;
+  transition:all 0.4s ease;
+  group:true;
+}
+.product-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(201,169,110,0.4);
+  background:rgba(255,255,255,0.06);
+}
+.product-img{
+  aspect-ratio:1/1;
+  overflow:hidden;
+  position:relative;
+}
+.product-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.5s ease;
+  filter:brightness(0.95);
+}
+.product-card:hover .product-img img{transform:scale(1.08);}
+.product-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(28,20,16,0.7) 0%,transparent 50%);
+  opacity:0;transition:opacity 0.3s;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:20px;
+}
+.product-card:hover .product-img-overlay{opacity:1;}
+.prod-cta{
+  padding:10px 24px;
+  background:var(--gold);
+  border-radius:50px;
+  color:#fff;
+  font-size:0.75rem;
+  font-weight:500;
+  letter-spacing:0.05em;
+  cursor:none;
+}
+.product-info{padding:20px;}
+.prod-cat{
+  font-size:0.65rem;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:6px;
+}
+.prod-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:500;
+  color:var(--cream);margin-bottom:6px;
+}
+.prod-desc-short{
+  font-size:0.78rem;color:rgba(250,246,240,0.5);
+  line-height:1.6;margin-bottom:12px;
+}
+.prod-stars{color:var(--gold);font-size:0.8rem;letter-spacing:2px;}
+
+/* ===== WHY US ===== */
+.why-section{
+  background:var(--warm-white);
+  position:relative;
+}
+.why-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.why-right-content{}
+.why-cards{
+  display:flex;flex-direction:column;gap:20px;
+  margin-top:44px;
+}
+.why-card{
+  display:flex;align-items:flex-start;gap:20px;
+  padding:24px;
+  background:#fff;
+  border-radius:16px;
+  border:1px solid var(--border);
+  transition:all 0.3s ease;
+  cursor:none;
+}
+.why-card:hover{
+  border-color:var(--gold);
+  transform:translateX(8px);
+  box-shadow:0 8px 32px rgba(201,169,110,0.12);
+}
+.why-icon{
+  width:52px;height:52px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--rose-light),var(--gold-light));
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+}
+.why-text-wrap{}
+.why-title{
+  font-size:0.92rem;font-weight:600;
+  color:var(--dark);margin-bottom:6px;
+}
+.why-text{font-size:0.8rem;color:var(--text-light);line-height:1.7;}
+.why-visual{
+  position:relative;
+}
+.why-img-wrap{
+  border-radius:24px;overflow:hidden;
+  aspect-ratio:4/5;
+  box-shadow:var(--shadow);
+}
+.why-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.why-float-1{
+  position:absolute;
+  bottom:-20px;left:-20px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px 24px;
+  box-shadow:0 16px 40px rgba(28,20,16,0.1);
+  animation:float 5s ease-in-out infinite;
+}
+.why-float-2{
+  position:absolute;
+  top:60px;right:-24px;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  border-radius:16px;
+  padding:16px 20px;
+  box-shadow:0 12px 32px rgba(201,169,110,0.35);
+  color:#fff;
+  font-size:0.8rem;
+  font-weight:500;
+  animation:float 5s 1.5s ease-in-out infinite;
+}
+.wf1-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:600;color:var(--gold);line-height:1;
+}
+.wf1-label{font-size:0.65rem;color:var(--text-light);letter-spacing:0.05em;margin-top:4px;}
+
+/* ===== TESTIMONIALS ===== */
+.testi-section{
+  background:linear-gradient(180deg,var(--cream),var(--warm-white));
+  overflow:hidden;
+}
+.testi-slider{
+  position:relative;
+  margin-top:64px;
+  overflow:hidden;
+  padding-bottom:60px;
+}
+.testi-track{
+  display:flex;gap:24px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  padding:8px 4px 24px;
+  cursor:grab;
+}
+.testi-track::-webkit-scrollbar{display:none;}
+.testi-track.dragging{cursor:grabbing;}
+.testi-card{
+  flex:0 0 360px;
+  background:#fff;
+  border-radius:24px;
+  padding:32px;
+  border:1px solid var(--border);
+  scroll-snap-align:start;
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+.testi-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.4s ease;
+}
+.testi-card:hover::before{transform:scaleX(1);}
+.testi-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(28,20,16,0.1);
+}
+.testi-quote{
+  font-size:3rem;
+  color:var(--gold-light);
+  line-height:0.5;
+  margin-bottom:20px;
+  font-family:'Cormorant Garamond',serif;
+}
+.testi-stars{
+  color:var(--gold);
+  font-size:0.9rem;
+  letter-spacing:3px;
+  margin-bottom:16px;
+}
+.testi-text{
+  font-size:0.88rem;
+  color:var(--text);
+  line-height:1.8;
+  font-style:italic;
+  margin-bottom:24px;
+}
+.testi-author{
+  display:flex;align-items:center;gap:14px;
+  border-top:1px solid var(--border);
+  padding-top:20px;
+}
+.testi-avatar{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--rose-light),var(--gold-light));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:600;
+  font-size:1rem;
+  color:var(--dark);
+  flex-shrink:0;
+}
+.testi-name{
+  font-size:0.88rem;font-weight:600;color:var(--dark);
+}
+.testi-meta{
+  font-size:0.72rem;color:var(--text-light);margin-top:2px;
+}
+.testi-nav{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;margin-top:8px;
+}
+.testi-btn{
+  width:44px;height:44px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text);
+  cursor:none;
+  transition:all 0.3s;
+}
+.testi-btn:hover{background:var(--gold);border-color:var(--gold);color:#fff;}
+.testi-dots{display:flex;gap:8px;align-items:center;}
+.testi-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);cursor:none;
+  transition:all 0.3s;
+}
+.testi-dot.active{background:var(--gold);width:24px;border-radius:4px;}
+
+/* ===== CONTACT / CTA ===== */
+.cta-section{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--dark-mid) 100%);
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;
+  top:-200px;left:50%;transform:translateX(-50%);
+  width:800px;height:800px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(201,169,110,0.1) 0%,transparent 70%);
+}
+.cta-inner{
+  position:relative;z-index:2;
+  text-align:center;
+  max-width:700px;
+  margin:0 auto;
+}
+.cta-inner .section-title{color:#fff;}
+.cta-inner .section-desc{color:rgba(250,246,240,0.6);margin:20px auto 48px;}
+.cta-actions{
+  display:flex;align-items:center;justify-content:center;
+  gap:20px;flex-wrap:wrap;
+}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:18px 40px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  border-radius:50px;
+  color:#fff;
+  font-size:0.9rem;font-weight:500;
+  cursor:none;
+  transition:all 0.3s ease;
+  box-shadow:0 8px 32px rgba(37,211,102,0.35);
+}
+.btn-wa:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(37,211,102,0.5);}
+.btn-email{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:17px 40px;
+  border:1px solid rgba(201,169,110,0.4);
+  border-radius:50px;
+  color:var(--gold-light);
+  font-size:0.9rem;font-weight:400;
+  cursor:none;
+  transition:all 0.3s ease;
+}
+.btn-email:hover{border-color:var(--gold);background:rgba(201,169,110,0.1);}
+.cta-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;margin-top:80px;
+}
+.cta-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(201,169,110,0.15);
+  border-radius:20px;
+  padding:32px 24px;
+  text-align:center;
+}
+.cta-card-icon{font-size:2rem;margin-bottom:16px;}
+.cta-card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:500;
+  color:var(--cream);margin-bottom:8px;
+}
+.cta-card-text{font-size:0.8rem;color:rgba(250,246,240,0.5);line-height:1.7;}
+.cta-card a{color:var(--gold);cursor:none;}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--dark);
+  padding:60px 32px 32px;
+  border-top:1px solid rgba(201,169,110,0.1);
+}
+.footer-grid{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;margin-bottom:48px;
+}
+.footer-brand .logo-main{color:var(--cream);}
+.footer-brand p{
+  font-size:0.82rem;color:rgba(250,246,240,0.4);
+  line-height:1.8;margin-top:16px;max-width:280px;
+}
+.footer-col h4{
+  font-size:0.75rem;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{
+  font-size:0.82rem;color:rgba(250,246,240,0.45);
+  cursor:none;transition:color 0.3s;
+}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-bottom{
+  max-width:1280px;margin:0 auto;
+  padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+}
+.footer-bottom p{font-size:0.75rem;color:rgba(250,246,240,0.25);}
+
+/* ===== BACK TO TOP ===== */
+#backTop{
+  position:fixed;bottom:100px;right:28px;
+  width:44px;height:44px;
+  background:var(--gold);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:1.2rem;
+  box-shadow:0 8px 24px rgba(201,169,110,0.4);
+  cursor:none;
+  opacity:0;visibility:hidden;
+  transition:all 0.3s ease;
+  z-index:7000;
+}
+#backTop.show{opacity:1;visibility:visible;}
+#backTop:hover{transform:translateY(-4px);background:var(--gold-dark);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+  .products-grid{grid-template-columns:repeat(2,1fr);}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-right{flex:0 0 380px;}
+}
+@media(max-width:900px){
+  :root{--nav-h:68px;}
+  section{padding:80px 24px;}
+  .nav-links{display:none;}
+  .btn-nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero-content{gap:0;}
+  .hero-right{display:none;}
+  .hero-title{font-size:clamp(2.2rem,8vw,4rem);}
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .about-img-accent{right:-16px;bottom:-16px;}
+  .why-grid{grid-template-columns:1fr;gap:48px;}
+  .why-visual{order:-1;}
+  .why-float-2{right:-8px;}
+  .cta-cards{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:640px){
+  section{padding:64px 20px;}
+  .navbar{padding:0 20px;}
+  .hero-stats{gap:24px;}
+  .stat-num{font-size:1.5rem;}
+  .services-grid{grid-template-columns:1fr;}
+  .products-grid{grid-template-columns:repeat(2,1fr);}
+  .about-features{grid-template-columns:1fr;}
+  .testi-card{flex:0 0 300px;}
+  .cta-actions{flex-direction:column;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .wa-float{right:16px;bottom:16px;}
+  #backTop{right:16px;bottom:90px;}
+}
+@media(max-width:400px){
+  .products-grid{grid-template-columns:1fr;}
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pre-logo">WASG</div>
+  <div class="pre-sub">Aesthetic Clinic</div>
+  <div class="pre-line"></div>
+  <div class="pre-dots">
+    <div class="pre-dot"></div>
+    <div class="pre-dot"></div>
+    <div class="pre-dot"></div>
+  </div>
+</div>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/6208950238465?text=Halo%20WASG%20Aesthetic%20Clinic%2C%20saya%20ingin%20konsultasi%20perawatan%20kecantikan%20%F0%9F%8C%B8" class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
+  <span>Konsultasi Gratis</span>
+</a>
+
+<!-- BACK TO TOP -->
+<button id="backTop" aria-label="Kembali ke atas">↑</button>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <div class="logo-mark">✦</div>
+      <div class="logo-text-wrap">
+        <span class="logo-main">WASG</span>
+        <span class="logo-sub">Aesthetic Clinic</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <a href="https://wa.me/6208950238465" class="btn-nav-cta" target="_blank">Book Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-header">
+    <span class="mobile-logo-text">WASG</span>
+    <button class="mobile-close" id="mobileClose">✕</button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="#about">Tentang Kami</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#produk">Produk</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+  <a href="https://wa.me/6208950238465?text=Halo%20WASG%2C%20saya%20ingin%20konsultasi%20%F0%9F%8C%B8" target="_blank" class="mobile-wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
+    Chat WhatsApp
+  </a>
+</div>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <canvas class="hero-particles-canvas" id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        Klinik Kecantikan Premium
+      </div>
+      <h1 class="hero-title">
+        Cantik Itu<br>
+        <em>Seni yang</em><br>
+        <strong>Bisa Dijaga</strong>
+      </h1>
+      <p class="hero-desc">
+        Wujudkan kecantikan terbaik versi diri Anda bersama tim dokter aesthetic profesional. Treatment modern, skincare premium, hasil nyata yang terasa.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/6208950238465?text=Halo%2C%20saya%20ingin%20konsultasi%20di%20WASG%20Aesthetic%20Clinic%20%F0%9F%8C%B8" class="btn-primary" target="_blank"><span>Konsultasi Sekarang</span></a>
+        <a href="#layanan" class="btn-outline">Lihat Layanan</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="stat-num" data-count="2000">0</div>
+          <div class="stat-label">Klien Puas</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num" data-count="5">0</div>
+          <div class="stat-label">Tahun Pengalaman</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num" data-count="20">0</div>
+          <div class="stat-label">Treatment Unggulan</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-wrap">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80" alt="WASG Aesthetic Clinic Treatment">
+        <div class="hero-badge-float">
+          <div class="badge-float-num">4.9★</div>
+          <div class="badge-float-label">Rating Pelanggan</div>
+        </div>
+        <div class="hero-badge-float2">
+          <div class="badge-float2-text">✦ Dokter Bersertifikat</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item"><span class="marquee-dot"></span>Facial Treatment</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Botox & Filler</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Laser Therapy</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Skincare Premium</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Hydrafacial</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Anti-Aging Treatment</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Whitening Program</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Acne Treatment</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Facial Treatment</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Botox & Filler</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Laser Therapy</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Skincare Premium</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Hydrafacial</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Anti-Aging Treatment</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Whitening Program</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Acne Treatment</div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal-left">
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=80" alt="Klinik WASG">
+        </div>
+        <div class="about-img-accent">
+          <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=400&q=80" alt="Produk WASG">
+        </div>
+        <div class="about-badge">
+          <div class="ab-num">5+</div>
+          <div class="ab-label">Tahun<br>Pengalaman</div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="reveal delay-2">
+          <span class="section-tag">Tentang Kami</span>
+          <h2 class="section-title">Klinik Kecantikan<br>Yang <em>Memahami</em> Anda</h2>
+          <p class="section-desc">
+            WASG Aesthetic Clinic hadir sebagai solusi kecantikan modern yang mengedepankan keamanan, kenyamanan, dan hasil yang optimal. Kami percaya setiap orang berhak merasa cantik dan percaya diri.
+          </p>
+          <p class="section-desc" style="margin-top:16px;">
+            Dipandu oleh dokter estetik bersertifikat dan tim yang berpengalaman, kami memberikan perawatan terbaik menggunakan teknologi mutakhir dan produk-produk premium berkualitas tinggi.
+          </p>
+        </div>
+        <div class="about-features reveal delay-3">
+          <div class="about-feat">
+            <div class="feat-icon">👩‍⚕️</div>
+            <div class="feat-title">Dokter Bersertifikat</div>
+            <div class="feat-text">Tim dokter estetik profesional dengan sertifikasi internasional</div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">🔬</div>
+            <div class="feat-title">Teknologi Terkini</div>
+            <div class="feat-text">Peralatan medis terbaru untuk hasil treatment optimal</div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">🌿</div>
+            <div class="feat-title">Produk Premium</div>
+            <div class="feat-text">Skincare bahan alami dengan formula dermatologis teruji</div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">💆‍♀️</div>
+            <div class="feat-title">Personalized Care</div>
+            <div class="feat-text">Treatment disesuaikan dengan kondisi dan kebutuhan kulit Anda</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-section" id="layanan">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">Layanan Kami</span>
+      <h2 class="section-title">Treatment <em>Unggulan</em></h2>
+      <p class="section-desc">Berbagai pilihan perawatan estetik profesional untuk menjawab setiap kebutuhan kecantikan Anda</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal delay-1">
+        <div class="sc-number">01</div>
+        <div class="sc-icon-wrap">✨</div>
+        <h3 class="sc-title">Facial Premium</h3>
+        <p class="sc-desc">Deep cleansing, exfoliasi mendalam, dan nutrisi intensif untuk kulit bercahaya dan sehat. Cocok untuk semua jenis kulit.</p>
+        <div class="sc-divider"></div>
+        <div class="sc-price">Mulai dari Rp 350.000</div>
+      </div>
+      <div class="service-card reveal delay-2">
+        <div class="sc-number">02</div>
+        <div class="sc-icon-wrap">💉</div>
+        <h3 class="sc-title">Botox & Filler</h3>
+        <p class="sc-desc">Treatment anti-aging dengan injeksi presisi untuk menghaluskan kerutan dan memberikan volume alami yang memperindah wajah.</p>
+        <div class="sc-divider"></div>
+        <div class="sc-price">Mulai dari Rp 1.500.000</div>
+      </div>
+      <div class="service-card reveal delay-3">
+        <div class="sc-number">03</div>
+        <div class="sc-icon-wrap">⚡</div>
+        <h3 class="sc-title">Laser Treatment</h3>
+        <p class="sc-desc">Teknologi laser terkini untuk mengatasi flek hitam, bekas jerawat, dan memperbaiki tekstur kulit secara efektif dan aman.</p>
+        <div class="sc-divider"></div>
+        <div class="sc-price">Mulai dari Rp 800.000</div>
+      </div>
+      <div class="service-card reveal delay-1">
+        <div class="sc-number">04</div>
+        <div class="sc-icon-wrap">💧</div>
+        <h3 class="sc-title">Hydrafacial</h3>
+        <p class="sc-desc">Perawatan hidrasi mendalam yang membersihkan pori-pori dan mengisi kulit dengan serum anti-oksidan premium secara bersamaan.</p>
+        <div class="sc-divider"></div>
+        <div class="sc-price">Mulai dari Rp 600.000</div>
+      </div>
+      <div class="service-card reveal delay-2">
+        <div class="sc-number">05</div>
+        <div class="sc-icon-wrap">🌟</div>
+        <h3 class="sc-title">Whitening Program</h3>
+        <p class="sc-desc">Program pemutihan kulit komprehensif yang meratakan warna kulit dan memberikan kecerahan natural yang tahan lama.</p>
+        <div class="sc-divider"></div>
+        <div class="sc-price">Mulai dari Rp 500.000</div>
+      </div>
+      <div class="service-card reveal delay-3">
+        <div class="sc-number">06</div>
+        <div class="sc-icon-wrap">🌺</div>
+        <h3 class="sc-title">Acne Treatment</h3>
+        <p class="sc-desc">Solusi komprehensif untuk mengatasi jerawat aktif dan bekas jerawat dengan protokol medis yang aman dan terbukti efektif.</p>
+        <div class="sc-divider"></div>
+        <div class="sc-price">Mulai dari Rp 400.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="products-section" id="produk">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">Produk Skincare</span>
+      <h2 class="section-title" style="color:#FAF6F0">Koleksi <em>Premium</em><br>WASG Skincare</h2>
+      <p class="section-desc">Formulasi eksklusif oleh tim dermatologis kami untuk perawatan kulit harian terbaik</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal delay-1">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=500&q=80" alt="Orange Serum">
+          <div class="product-img-overlay"><div class="prod-cta">Lihat Detail</div></div>
+        </div>
+        <div class="product-info">
+          <div class="prod-cat">Serum</div>
+          <div class="prod-name">Brightening Serum</div>
+          <div class="prod-desc-short">Vitamin C 20% + Niacinamide untuk kulit cerah bercahaya</div>
+          <div class="prod-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="product-card reveal delay-2">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80" alt="Moisturizer">
+          <div class="product-img-overlay"><div class="prod-cta">Lihat Detail</div></div>
+        </div>
+        <div class="product-info">
+          <div class="prod-cat">Moisturizer</div>
+          <div class="prod-name">Hydra Cream Luxe</div>
+          <div class="prod-desc-short">Hyaluronic Acid triple-weight untuk hidrasi 24 jam penuh</div>
+          <div class="prod-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="product-card reveal delay-3">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=500&q=80" alt="Toner">
+          <div class="product-img-overlay"><div class="prod-cta">Lihat Detail</div></div>
+        </div>
+        <div class="product-info">
+          <div class="prod-cat">Essence</div>
+          <div class="prod-name">Glow Essence</div>
+          <div class="prod-desc-short">AHA/BHA complex untuk eksfoliasi lembut dan kulit mulus</div>
+          <div class="prod-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="product-card reveal delay-4">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1631390053823-4d4d2c3498e7?auto=format&fit=crop&w=500&q=80" alt="Sunscreen">
+          <div class="product-img-overlay"><div class="prod-cta">Lihat Detail</div></div>
+        </div>
+        <div class="product-info">
+          <div class="prod-cat">Sun Protection</div>
+          <div class="prod-name">UV Shield SPF 50+</div>
+          <div class="prod-desc-short">Perlindungan UV broad-spectrum tanpa meninggalkan white cast</div>
+          <div class="prod-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="why-section" id="keunggulan">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-visual reveal-left">
+        <div class="why-img-wrap">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=700&q=80" alt="Klinik WASG Interior">
+        </div>
+        <div class="why-float-1">
+          <div class="wf1-num">98%</div>
+          <div class="wf1-label">Tingkat Kepuasan</div>
+        </div>
+        <div class="why-float-2">✓ ISO Certified Clinic</div>
+      </div>
+      <div class="why-right-content">
+        <div class="reveal-right">
+          <span class="section-tag">Mengapa WASG</span>
+          <h2 class="section-title">Kepercayaan Anda<br>Adalah <em>Prioritas</em> Kami</h2>
+          <p class="section-desc">Kami tidak hanya memberikan treatment — kami memberikan pengalaman kecantikan yang aman, nyaman, dan memberikan hasil yang terukur.</p>
+        </div>
+        <div class="why-cards">
+          <div class="why-card reveal-right delay-1">
+            <div class="why-icon">🏅</div>
+            <div class="why-text-wrap">
+              <div class="why-title">Dokter Spesialis Estetik</div>
+              <div class="why-text">Semua treatment dilakukan langsung oleh dokter estetik bersertifikat PERDOSKI dan pelatihan internasional.</div>
+            </div>
+          </div>
+          <div class="why-card reveal-right delay-2">
+            <div class="why-icon">🛡️</div>
+            <div class="why-text-wrap">
+              <div class="why-title">Bahan & Alat Tersertifikasi</div>
+              <div class="why-text">Hanya menggunakan produk dan peralatan yang telah mendapat izin BPOM dan sertifikasi keamanan internasional.</div>
+            </div>
+          </div>
+          <div class="why-card reveal-right delay-3">
+            <div class="why-icon">💬</div>
+            <div class="why-text-wrap">
+              <div class="why-title">Konsultasi Tanpa Batas</div>
+              <div class="why-text">Gratis konsultasi sebelum treatment dan follow-up pasca treatment sampai Anda benar-benar puas dengan hasilnya.</div>
+            </div>
+          </div>
+          <div class="why-card reveal-right delay-4">
+            <div class="why-icon">💰</div>
+            <div class="why-text-wrap">
+              <div class="why-title">Harga Transparan</div>
+              <div class="why-text">Tidak ada biaya tersembunyi. Semua biaya dijelaskan di awal sebelum treatment dimulai. Hasil maksimal, harga bersahabat.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testi-section" id="testimoni">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">Testimoni</span>
+      <h2 class="section-title">Apa Kata Mereka<br>Tentang <em>WASG</em></h2>
+      <p class="section-desc">Ribuan pelanggan telah merasakan manfaat nyata dari perawatan kami. Ini cerita mereka.</p>
+    </div>
+    <div class="testi-slider reveal">
+      <div class="testi-track" id="testiTrack">
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Jujur awalnya skeptis, udah coba banyak klinik tapi hasilnya sama aja. Tapi setelah 3x treatment facial di WASG, beneran beda banget! Kulit gue yang biasanya kusam sekarang jauh lebih cerah. Dokternya ramah dan sabar banget jelasinnya.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SR</div>
+            <div>
+              <div class="testi-name">Sarah Ramadhani</div>
+              <div class="testi-meta">Jakarta Selatan • Facial Premium</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Udah 6 bulan rutin ke WASG buat treatment acne. Hasilnya luar biasa, jerawat yang udah menahun dan ninggalin bekas akhirnya bisa teratasi. Stafnya juga ramah banget, ga pernah ngerasa awkward meski kulit lagi jelek-jeleknya.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">DP</div>
+            <div>
+              <div class="testi-name">Dinda Pratiwi</div>
+              <div class="testi-meta">Bekasi • Acne Treatment</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Pertama kali coba botox di sini, takut banget awalnya. Tapi dokternya beneran ngasih penjelasan detail sampai gue ngerasa yakin. Hasilnya natural banget, teman-teman banyak yang bilang gue keliatan lebih segar tapi ga ketauan botox-nya. Puas!</p>
+          <div class="testi-author">
+            <div class="testi-avatar">MW</div>
+            <div>
+              <div class="testi-name">Melinda Wijaya</div>
+              <div class="testi-meta">Jakarta Barat • Botox Treatment</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Skincare WASG yang Orange Serum itu holy grail banget! Sudah pakai 2 bulan, flek bekas jerawat gue mulai berkurang signifikan. Teksturnya ringan, ga lengket, dan cocok di kulit sensitif gue. Recommended banget buat yang kulitnya kayak gue!</p>
+          <div class="testi-author">
+            <div class="testi-avatar">NA</div>
+            <div>
+              <div class="testi-name">Nadia Amelia</div>
+              <div class="testi-meta">Tangerang • WASG Skincare</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Istri saya yang rekomendasiin WASG dan saya yang akhirnya kecanduan. Laser treatment buat bekas luka di muka saya hasilnya sungguh di luar ekspektasi. 4 sesi dan sekarang bekas lukanya hampir ga keliatan. Worth every rupiah!</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RH</div>
+            <div>
+              <div class="testi-name">Rizky Hidayat</div>
+              <div class="testi-meta">Depok • Laser Treatment</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Udah 2 tahun jadi pelanggan setia WASG dan ga pernah berniat pindah ke tempat lain. Konsistensi treatment di sini bikin kulit gue beneran berubah. Yang paling suka tuh after-care-nya — mereka beneran follow up kondisi kulit kita pasca treatment.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">LP</div>
+            <div>
+              <div class="testi-name">Lidya Permatasari</div>
+              <div class="testi-meta">Bogor • Loyal Customer 2 Tahun</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Coba Hydrafacial pertama kali di WASG dan langsung jatuh cinta. Satu sesi aja kulit langsung keliatan beda, pori-pori bersih, kulit terasa super lembab. Tempat kliniknya juga bersih, nyaman, dan ga ada tuh yang namanya antri lama. Mantap!</p>
+          <div class="testi-author">
+            <div class="testi-avatar">FI</div>
+            <div>
+              <div class="testi-name">Fitria Indah</div>
+              <div class="testi-meta">Jakarta Timur • Hydrafacial</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Saya hamil dan khawatir soal keamanan treatment, tapi WASG sangat profesional. Dokternya menyesuaikan treatment yang aman untuk ibu hamil. Setelah melahirkan pun langsung lanjut program whitening di sini. Kulit postpartum saya kembali cerah, terima kasih WASG!</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AS</div>
+            <div>
+              <div class="testi-name">Annisa Safitri</div>
+              <div class="testi-meta">Ciputat • Whitening Program</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="testi-nav">
+        <button class="testi-btn" id="testiPrev">←</button>
+        <div class="testi-dots" id="testiDots"></div>
+        <button class="testi-btn" id="testiNext">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA / CONTACT ===== -->
+<section class="cta-section" id="kontak">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="section-tag" style="padding-left:0;text-align:center;display:block;">Hubungi Kami</span>
+      <h2 class="section-title">Mulai Perjalanan<br><em>Kecantikan Anda</em> Hari Ini</h2>
+      <p class="section-desc">Konsultasikan kondisi kulit Anda dengan tim dokter kami. Gratis, tanpa tekanan, penuh rasa peduli.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/6208950238465?text=Halo%20WASG%20Aesthetic%20Clinic%2C%20saya%20ingin%20konsultasi%20%F0%9F%8C%B8" class="btn-wa" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
+          Chat WhatsApp
+        </a>
+        <a href="mailto:Adityap1498@gmail.com" class="btn-email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          Kirim Email
+        </a>
+      </div>
+    </div>
+    <div class="cta-cards">
+      <div class="cta-card reveal delay-1">
+        <div class="cta-card-icon">📱</div>
+        <div class="cta-card-title">WhatsApp</div>
+        <div class="cta-card-text">
+          Respon cepat 24 jam<br>
+          <a href="https://wa.me/6208950238465" target="_blank">0895-0238-4651</a>
+        </div>
+      </div>
+      <div class="cta-card reveal delay-2">
+        <div class="cta-card-icon">✉️</div>
+        <div class="cta-card-title">Email</div>
+        <div class="cta-card-text">
+          Untuk pertanyaan detail<br>
+          <a href="mailto:Adityap1498@gmail.com">Adityap1498@gmail.com</a>
+        </div>
+      </div>
+      <div class="cta-card reveal delay-3">
+        <div class="cta-card-icon">🕐</div>
+        <div class="cta-card-title">Jam Operasional</div>
+        <div class="cta-card-text">
+          Senin – Sabtu<br>
+          <span style="color:var(--gold-light)">09.00 – 20.00 WIB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:0">
+        <div class="logo-mark">✦</div>
+        <div class="logo-text-wrap">
+          <span class="logo-main">WASG</span>
+          <span class="logo-sub">Aesthetic Clinic</span>
+        </div>
+      </div>
+      <p>Klinik kecantikan modern yang mengutamakan keamanan dan kepuasan klien. Percayakan kecantikan Anda kepada kami.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="#layanan">Facial Premium</a></li>
+        <li><a href="#layanan">Botox & Filler</a></li>
+        <li><a href="#layanan">Laser Treatment</a></li>
+        <li><a href="#layanan">Hydrafacial</a></li>
+        <li><a href="#layanan">Acne Treatment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Produk</h4>
+      <ul>
+        <li><a href="#produk">Brightening Serum</a></li>
+        <li><a href="#produk">Hydra Cream</a></li>
+        <li><a href="#produk">Glow Essence</a></li>
+        <li><a href="#produk">UV Shield SPF 50+</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="https://wa.me/6208950238465" target="_blank">0895-0238-4651</a></li>
+        <li><a href="mailto:Adityap1498@gmail.com">Adityap1498@gmail.com</a></li>
+        <li><a href="#home">Instagram</a></li>
+        <li><a href="#home">Facebook</a></li>
+        <li><a href="#home">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 WASG Aesthetic Clinic. All rights reserved.</p>
+    <p>Dibuat dengan ✦ untuk kecantikan Anda</p>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+/* ======= DISABLE RIGHT CLICK ======= */
+document.addEventListener('contextmenu', function(e){ e.preventDefault(); return false; });
+document.addEventListener('selectstart', function(e){ e.preventDefault(); return false; });
+document.addEventListener('dragstart', function(e){ e.preventDefault(); return false; });
+document.onkeydown = function(e){
+  if(e.ctrlKey && (e.keyCode===85||e.keyCode===83||e.keyCode===65||e.keyCode===67||e.keyCode===86||e.keyCode===80||e.keyCode===73||e.keyCode===74)){
+    return false;
+  }
+  if(e.keyCode===123){ return false; }
+};
+
+/* ======= PRELOADER ======= */
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.getElementById('preloader').classList.add('done');
+    document.body.style.overflow = '';
+  }, 1800);
+});
+document.body.style.overflow = 'hidden';
+
+/* ======= CUSTOM CURSOR ======= */
+var cursor = document.getElementById('cursor');
+var ring = document.getElementById('cursor-ring');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', function(e){
+  mx=e.clientX; my=e.clientY;
+  cursor.style.transform = 'translate('+(mx-6)+'px,'+(my-6)+'px)';
+});
+(function animRing(){
+  rx += (mx - rx - 20) * 0.12;
+  ry += (my - ry - 20) * 0.12;
+  ring.style.transform = 'translate('+rx+'px,'+ry+'px)';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,.service-card,.product-card,.why-card,.testi-card,.about-feat').forEach(function(el){
+  el.addEventListener('mouseenter', function(){ ring.classList.add('hover'); });
+  el.addEventListener('mouseleave', function(){ ring.classList.remove('hover'); });
+});
+/* Hide cursor on mobile */
+if('ontouchstart' in window){
+  cursor.style.display='none';ring.style.display='none';
+  document.body.style.cursor='auto';
+}
+
+/* ======= PROGRESS BAR ======= */
+var bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', function(){
+  var s = document.documentElement.scrollTop;
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = (s/h*100) + '%';
+}, {passive:true});
+
+/* ======= NAVBAR SCROLL ======= */
+var nav = document.getElementById('navbar');
+window.addEventListener('scroll', function(){
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, {passive:true});
+
+/* ======= BACK TO TOP ======= */
+var backTop = document.getElementById('backTop');
+window.addEventListener('scroll', function(){
+  backTop.classList.toggle('show', window.scrollY > 500);
+}, {passive:true});
+backTop.addEventListener('click', function(){
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* ======= MOBILE MENU ======= */
+var ham = document.getElementById('hamburger');
+var menu = document.getElementById('mobileMenu');
+var overlay = document.getElementById('mobileOverlay');
+var closeBtn = document.getElementById('mobileClose');
+function openMenu(){
+  menu.classList.add('open');
+  overlay.classList.add('show');
+  ham.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeMenu(){
+  menu.classList.remove('open');
+  overlay.classList.remove('show');
+  ham.classList.remove('open');
+  document.body.style.overflow='';
+}
+ham.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
+menu.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', closeMenu);
+});
+
+/* ======= HERO CANVAS PARTICLES ======= */
+(function(){
+  var canvas = document.getElementById('heroCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W,H,pts=[];
+  function resize(){
+    W=canvas.width=canvas.offsetWidth;
+    H=canvas.height=canvas.offsetHeight;
+  }
+  window.addEventListener('resize',resize,{passive:true});
+  resize();
+  for(var i=0;i<70;i++){
+    pts.push({
+      x:Math.random()*W, y:Math.random()*H,
+      r:Math.random()*1.5+0.3,
+      dx:(Math.random()-0.5)*0.3,
+      dy:(Math.random()-0.5)*0.3,
+      a:Math.random()*0.6+0.1,
+      da:(Math.random()-0.5)*0.003
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(function(p){
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(201,169,110,'+p.a+')';
+      ctx.fill();
+      p.x+=p.dx; p.y+=p.dy; p.a+=p.da;
+      if(p.a>0.8||p.a<0.05) p.da*=-1;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+    });
+    // Draw constellation lines
+    pts.forEach(function(p1,i){
+      pts.slice(i+1).forEach(function(p2){
+        var d=Math.hypot(p1.x-p2.x,p1.y-p2.y);
+        if(d<100){
+          ctx.beginPath();
+          ctx.moveTo(p1.x,p1.y);
+          ctx.lineTo(p2.x,p2.y);
+          ctx.strokeStyle='rgba(201,169,110,'+(0.15*(1-d/100))+')';
+          ctx.lineWidth=0.5;
+          ctx.stroke();
+        }
+      });
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ======= HERO COUNTER ======= */
+function animCounter(el){
+  var target=parseInt(el.getAttribute('data-count'));
+  var start=null;
+  function step(ts){
+    if(!start)start=ts;
+    var p=Math.min((ts-start)/2000,1);
+    var ease=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(target*ease);
+    if(p<1)requestAnimationFrame(step);
+    else el.textContent=target;
+  }
+  requestAnimationFrame(step);
+}
+setTimeout(function(){
+  document.querySelectorAll('.stat-num').forEach(animCounter);
+},2000);
+
+/* ======= SCROLL REVEAL — MAGNETIC STAGGER ======= */
+(function(){
+  var revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');
+  function check(){
+    revealEls.forEach(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top < window.innerHeight - 60){
+        el.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', check, {passive:true});
+  window.addEventListener('resize', check, {passive:true});
+  setTimeout(check, 100);
+  // Extra: staggered children reveal for service cards
+  document.querySelectorAll('.services-grid, .products-grid').forEach(function(grid){
+    Array.from(grid.children).forEach(function(child,i){
+      child.style.transitionDelay = (i*0.1) + 's';
+    });
+  });
+})();
+
+/* ======= PARALLAX ON SCROLL ======= */
+window.addEventListener('scroll', function(){
+  var scrollY = window.scrollY;
+  var heroBg = document.querySelector('.hero-bg');
+  if(heroBg) heroBg.style.transform = 'translateY('+(scrollY*0.3)+'px)';
+  var heroGrid = document.querySelector('.hero-grid');
+  if(heroGrid) heroGrid.style.transform = 'translateY('+(scrollY*0.15)+'px)';
+}, {passive:true});
+
+/* ======= TESTIMONIAL DRAG SLIDER ======= */
+(function(){
+  var track = document.getElementById('testiTrack');
+  if(!track) return;
+  var cards = track.querySelectorAll('.testi-card');
+  var dotsWrap = document.getElementById('testiDots');
+  var prevBtn = document.getElementById('testiPrev');
+  var nextBtn = document.getElementById('testiNext');
+  var cardW = 360 + 24; // width + gap
+  var current = 0;
+  var total = cards.length;
+  var isDragging = false;
+  var startX = 0;
+  var scrollLeft = 0;
+
+  // Create dots
+  cards.forEach(function(_,i){
+    var dot = document.createElement('div');
+    dot.className = 'testi-dot' + (i===0?' active':'');
+    dot.addEventListener('click', function(){ goTo(i); });
+    dotsWrap.appendChild(dot);
+  });
+
+  function updateDots(){
+    dotsWrap.querySelectorAll('.testi-dot').forEach(function(d,i){
+      d.classList.toggle('active', i===current);
+    });
+  }
+
+  function goTo(n){
+    current = Math.max(0, Math.min(n, total-1));
+    var offset = Math.min(current * cardW, track.scrollWidth - track.offsetWidth);
+    track.scrollTo({left: offset, behavior:'smooth'});
+    updateDots();
+  }
+
+  prevBtn.addEventListener('click', function(){ goTo(current-1); });
+  nextBtn.addEventListener('click', function(){ goTo(current+1); });
+
+  // Auto scroll
+  var autoTimer = setInterval(function(){ 
+    if(current >= total-1) goTo(0);
+    else goTo(current+1);
+  }, 4000);
+  track.addEventListener('mouseenter', function(){ clearInterval(autoTimer); });
+  track.addEventListener('mouseleave', function(){
+    autoTimer = setInterval(function(){
+      if(current >= total-1) goTo(0);
+      else goTo(current+1);
+    }, 4000);
+  });
+
+  // Drag
+  track.addEventListener('mousedown', function(e){
+    isDragging=true; startX=e.pageX - track.offsetLeft; scrollLeft=track.scrollLeft;
+    track.classList.add('dragging');
+  });
+  track.addEventListener('mouseleave', function(){ isDragging=false; track.classList.remove('dragging'); });
+  track.addEventListener('mouseup', function(){ isDragging=false; track.classList.remove('dragging'); });
+  track.addEventListener('mousemove', function(e){
+    if(!isDragging) return;
+    e.preventDefault();
+    var x=e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft-(x-startX)*1.5;
+  });
+})();
+
+/* ======= ACTIVE NAV ======= */
+var sections = document.querySelectorAll('section[id]');
+var navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', function(){
+  var s = window.scrollY + 120;
+  sections.forEach(function(sec){
+    if(s >= sec.offsetTop && s < sec.offsetTop + sec.offsetHeight){
+      navLinks.forEach(function(a){ a.classList.remove('active'); });
+      var active = document.querySelector('.nav-links a[href="#'+sec.id+'"]');
+      if(active) active.classList.add('active');
+    }
+  });
+}, {passive:true});
+
+/* ======= SMOOTH HOVER CARD TILT ======= */
+document.querySelectorAll('.service-card,.product-card').forEach(function(card){
+  card.addEventListener('mousemove', function(e){
+    var r=card.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width-0.5;
+    var y=(e.clientY-r.top)/r.height-0.5;
+    card.style.transform='translateY(-12px) rotateX('+(y*-8)+'deg) rotateY('+(x*8)+'deg)';
+    card.style.transformOrigin='center center';
+  });
+  card.addEventListener('mouseleave', function(){
+    card.style.transform='';
+  });
+});
+
+/* ======= LOGO REVEAL ON LOAD ======= */
+setTimeout(function(){
+  document.querySelectorAll('.about-badge,.hero-badge-float,.hero-badge-float2,.why-float-1,.why-float-2').forEach(function(el,i){
+    el.style.opacity='0';el.style.transform='scale(0.8)';el.style.transition='all 0.5s '+(0.2+i*0.15)+'s ease';
+    setTimeout(function(){el.style.opacity='1';el.style.transform='';},100);
+  });
+},100);
+
+/* ======= VH FIX MOBILE ======= */
+(function(){
+  function setVH(){ document.documentElement.style.setProperty('--vh',(window.innerHeight*0.01)+'px'); }
+  setVH();
+  window.addEventListener('resize', setVH);
+  window.addEventListener('orientationchange',function(){setTimeout(setVH,150);});
+})();
+</script>
+</body>
+</html>
